@@ -1,0 +1,28 @@
+{
+  "bus": [
+    {
+      "id": "1",
+      "CustomerLocation": "Erode",
+      "CustomerLocationTo": "Salem",
+      "CustomerTicketCount": 1,
+      "CustomerTravelDate": "2024-02-08",
+      "CustomerTravelTime": "02:35"
+    },
+    {
+      "id": "2",
+      "CustomerLocation": "Gobi",
+      "CustomerLocationTo": "Tiruchengode",
+      "CustomerTicketCount": 2,
+      "CustomerTravelDate": "2024-08-09",
+      "CustomerTravelTime": "20:10"
+    },
+    {
+      "id": "3",
+      "CustomerLocation": "Tiruchengode",
+      "CustomerLocationTo": "Chennai",
+      "CustomerTicketCount": 4,
+      "CustomerTravelDate": "2024-08-01",
+      "CustomerTravelTime": "16:07"
+    }
+  ]
+}

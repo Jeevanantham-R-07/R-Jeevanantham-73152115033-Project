@@ -1,0 +1,134 @@
+<div>
+    <div class="head" >
+       <h1>Bus Ticket booking Management System</h1> 
+    </div>
+    <div class="body">
+        <div class="div1">
+            <form class="box" #form="ngForm">
+                Id
+                <input type="text" 
+                        class="form-control" 
+                        name="CustomerId" 
+                        #CustomerId="ngModel" ngModel
+                        required
+                        pattern="[0-9]+"/>
+
+                    <div *ngIf="CustomerId.touched"> 
+                        <div *ngIf="CustomerId.errors?.['required']">
+                          <b style="color:red;">Customer Id Required</b>
+                        </div>
+                        <div *ngIf="CustomerId.errors?.['pattern']">
+                          <b style="color:red;">Invalid Customer Id.</b>
+                        </div>
+                    </div>
+
+
+                From
+                <input type="text"
+                            class="form-control" 
+                            name="CustomerLocation" 
+                            #CustomerLocation="ngModel" ngModel
+                            required
+                            pattern="[a-z,A-Z]+"/>
+                            <div *ngIf="CustomerLocation.touched"> 
+                                <div *ngIf="CustomerLocation.errors?.['required']">
+                                      <b style="color:red;">Customer From Location Required</b>
+                                </div>
+                                <div *ngIf="CustomerLocation.errors?.['pattern']">
+                                      <b style="color:red;">Invalid Customer From Location</b>
+                                </div>
+                          </div>
+
+
+                To
+                <input  type="text"
+                        class="form-control" 
+                        name="CustomerLocationTo" 
+                        #CustomerLocationTo="ngModel" ngModel
+                        required
+                        pattern="[a-z,A-Z]+"/>
+                        <div *ngIf="CustomerLocationTo.touched"> 
+                            <div *ngIf="CustomerLocationTo.errors?.['required']">
+                                <b style="color:red;">Customer To Location Required</b>
+                            </div>
+                            <div *ngIf="CustomerLocationTo.errors?.['pattern']">
+                                <b style="color:red;">Invalid Customer To Location</b>
+                            </div>
+                        </div>
+
+
+                Number of Ticket
+                <input  type="number" min="1" max="5"
+                                        class="form-control" 
+                                        name="CustomerTicketCount" 
+                                        #CustomerTicketCount="ngModel" ngModel
+                                        required/>
+                                        <div *ngIf="CustomerTicketCount.touched"> 
+                                            <div *ngIf="CustomerTicketCount.errors?.['required']">
+                                                  <b style="color:red;">Customer Ticket Count is Required</b>
+                                            </div>
+                                      </div>
+
+                                        
+
+                Date
+                <input  type="date" 
+                            class="form-control" 
+                            name="CustomerTravelDate" 
+                            #CustomerTravelDate="ngModel" ngModel
+                            required/>
+                            <div *ngIf="CustomerTravelDate.touched"> 
+                                <div *ngIf="CustomerTravelDate.errors?.['required']">
+                                      <b style="color:red;">Customer Travel date is Required</b>
+                                </div>    
+                          </div>
+
+                Time<input type="time"
+                            class="form-control" 
+                            name="CustomerTravelTime" 
+                            #CustomerTravelTime="ngModel" ngModel
+                            required/>
+                <div *ngIf="CustomerTravelTime.touched"> 
+                    <div *ngIf="CustomerTravelTime.errors?.['required']">
+                          <b style="color:red;">Customer Travel time is Required</b>
+                    </div>   
+              </div>
+
+
+            </form><br>
+            <div class="b">
+                <button (click)="insertvalues(form.value)">Conform</button> &nbsp;&nbsp;
+                <button (click)="updatevalues(form.value)">update</button>  &nbsp;&nbsp;
+                <button (click)="cancelvalues(form.value)">cancel</button>  &nbsp;&nbsp;
+            </div><br>
+            
+            <div class="b" style="display: flex; justify-content: space-around;">
+                <button (click)="statusvalues(form.value)">status</button> &nbsp;&nbsp;
+                <button (click)="Details()">Details</button>
+            </div>
+           
+        </div>
+        
+        <div  class="div2"> 
+        <h2>Ticket Status </h2><hr>
+        
+        <div class="box2">
+            <h2>{{result}}</h2>
+            <div></div>
+            <div></div>
+            <div style="width: 100%;" *ngIf="flag">
+                <table width="80%" align="center" class="table table-borderd">
+                 <tr><th>Id</th><th>From Location</th><th>To Location</th>
+                    <th>Ticket Count</th><th>Travel Date</th><th>Travel Time</th>
+                </tr> 
+                  <tr *ngFor="let Customer of busarr">
+                      <td> {{Customer.id}} </td><td> {{Customer.CustomerLocation}} </td><td> {{Customer.CustomerLocationTo}} </td>
+                      <td> {{Customer.CustomerTicketCount}} </td><td> {{Customer.CustomerTravelDate}} </td><td> {{Customer.CustomerTravelTime}} </td>
+                  </tr>
+               </table>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
